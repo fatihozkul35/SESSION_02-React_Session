@@ -1,16 +1,16 @@
 import React from "react";
 import {
-  Nav,
-  Container,
   Navbar,
-  Button,
-  Form,
+  Nav,
   NavDropdown,
+  Form,
   FormControl,
+  Button,
+  Container,
 } from "react-bootstrap";
 import logo from "../img/logo.png";
 
-const MyNavbar = () => {
+function MyNav() {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -24,21 +24,13 @@ const MyNavbar = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
+            <Nav.Link href="#">Home</Nav.Link>
+            <Nav.Link href="#">People</Nav.Link>
+            <NavDropdown title="Courses" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="#">Full-Stack</NavDropdown.Item>
+              <NavDropdown.Item href="#">Data Science</NavDropdown.Item>
+              <NavDropdown.Item href="#">Devops</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link>
           </Nav>
           <Form className="d-flex ms-4">
             <FormControl
@@ -47,12 +39,12 @@ const MyNavbar = () => {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-danger">Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
-};
+}
 
-export default MyNavbar;
+export default MyNav;
