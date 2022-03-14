@@ -1,0 +1,55 @@
+// ?=========================================================
+// ?                    CARDS CSS
+// ?=========================================================
+
+@import "../../scss/variables";
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem;
+  .cards {
+    background-color: $cardNavBgColor;
+    box-shadow: 2px 5px 10px 5px $shadowColor;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    .title {
+      padding: 0.5rem;
+      color: white;
+    }
+    .img-div {
+      max-width: 500px;
+      border-radius: 10px;
+      filter: grayscale(0%);
+      img {
+        width: 100%;
+      }
+    }
+    .card-over {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      transform: translateY(100%);
+      transition: transform 1s;
+    }
+    &:hover {
+      .card-over {
+        transform: translateY(-20%);
+        background-color: $shadowColor;
+      }
+      .title {
+        color: $backgroundColor;
+      }
+      .img-div {
+        img {
+          filter: grayscale(100%);
+        }
+      }
+    }
+  }
+}

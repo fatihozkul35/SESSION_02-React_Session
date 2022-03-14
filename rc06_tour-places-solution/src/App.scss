@@ -1,0 +1,24 @@
+// ?=========================================================
+// ?                        APP CSS
+// ?=========================================================
+
+@import "./scss/reset", "./scss/variables", "./scss/mixins";
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Hubballi&display=swap");
+
+body {
+  font-family: "Amatic SC", cursive;
+  background-color: $backgroundColor;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+
+p {
+  font-family: "Hubballi", cursive;
+  color: white;
+}
