@@ -18,7 +18,7 @@ const FormObject = () => {
   const handleFormValues = (e) => {
     //  console.log("NAME:", e.target.name);
     //  console.log("VALUE:", e.target.value);
-    setFormValues({ ...formValues, [e.target.name]: formValues.username });
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
   return (
