@@ -32,28 +32,40 @@ const UseEffectHook = () => {
   const [count, setCount] = useState(0);
 
   //!componentDidMount
-  useEffect(() => {
-    console.log("Counter mounted");
-    const timeOut = setTimeout(() => {
-      alert("Data Fetched");
-    }, 3000);
-  }, []);
+  //   useEffect(() => {
+  //     console.log("Counter mounted");
+  //     const timeOut = setTimeout(() => {
+  //       alert("Data Fetched");
+  //     }, 3000);
+  //   }, []);
 
   //!componentDidMount + componentDidUpdate
-  useEffect(() => {
-    console.log(`Count:${count}`);
-  }, [count]);
+  //   useEffect(() => {
+  //     console.log(`Count:${count}`);
+  //   }, [count]);
 
   //!componentDidMount + componentWillUnmount
+  //   useEffect(() => {
+  //     const intervalId = setInterval(() => {
+  //       console.log("interval");
+  //     }, 1000);
+
+  //     return () => {
+  //       //!ComponentWillUnmount
+  //       console.log("interval canceled");
+  //       clearInterval(intervalId);
+  //     };
+  //   }, []);
+
+  //!componentDidMount + componentDidUpdate + componentWillUnmount
   useEffect(() => {
-    const intervalId = setInterval(() => {
+    console.log(`Counter Updated: ${count}`);
+    const interval = setInterval(() => {
       console.log("interval");
     }, 1000);
-
     return () => {
-      //!ComponentWillUnmount
-      console.log("interval canceled");
-      clearInterval(intervalId);
+      clearInterval(interval);
+      console.log("interval Unmounted");
     };
   }, [count]);
 

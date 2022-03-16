@@ -12,8 +12,8 @@ function App() {
         <button className="btn btn-danger" onClick={() => setShow(!show)}>
           SHOW
         </button>
-        {/* {show && <LifeCycleMethods />}
-        {show && <Timer time={5} />}  */}
+        {show && <LifeCycleMethods />}
+        {show && <Timer time={5} />}
         {show && <UseEffectHook />}
       </div>
     </>
