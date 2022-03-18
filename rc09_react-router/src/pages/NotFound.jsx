@@ -1,17 +1,24 @@
 import { useNavigate } from "react-router-dom";
+import { Button, Container } from "react-bootstrap";
 
 const NotFound = () => {
   const navigate = useNavigate();
   return (
-    <div className="d-flex justify-content-center align-items-center h-100">
+    <Container className="text-center mt-4">
       <img
         className="w-75"
         src="https://cdn.yenicaggazetesi.com.tr/news/2022/03/150320221117469981053.jpeg"
         alt=""
-        onClick={() => navigate("/")}
-        style={{ cursor: "pointer" }}
       />
-    </div>
+      <div className="mt-4">
+        <Button variant="info" onClick={() => navigate("/")}>
+          Go Home
+        </Button>
+        <Button variant="warning" onClick={() => navigate(-1)}>
+          Go Back
+        </Button>
+      </div>
+    </Container>
   );
 };
 

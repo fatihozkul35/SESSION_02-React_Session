@@ -6,13 +6,14 @@ import Home from "./pages/Home";
 import Instructors from "./pages/Instructors";
 import { Routes, Route } from "react-router-dom";
 import NotFound from "./pages/NotFound";
+import InstructorDetails from "./pages/InstructorDetails";
 
 function App() {
   return (
     <>
       <MyNavbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route exact path="/" element={<Home />} />
         <Route path="/courses" element={<CourseCard />} />
         <Route path="/instructors" element={<Instructors />} />
         <Route path="/instructors/:id" element={<InstructorDetails />} />

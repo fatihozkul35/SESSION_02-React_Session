@@ -17,16 +17,40 @@ function MyNavbar() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Link className="nav-link" to="/">
+            <NavLink
+              className="nav-link"
+              style={({ isActive }) => ({
+                color: isActive && "red",
+              })}
+              to="/"
+            >
               Home
-            </Link>
-            <NavLink className="nav-link" to="/instructors">
+            </NavLink>
+            <NavLink
+              to="/instructors"
+              className="nav-link"
+              style={({ isActive }) => ({
+                color: isActive && "red",
+              })}
+            >
               Instructors
             </NavLink>
-            <NavLink className="nav-link" to="/courses">
+            <NavLink
+              className="nav-link"
+              style={({ isActive }) => ({
+                color: isActive && "red",
+              })}
+              to="/courses"
+            >
               Courses
             </NavLink>
-            <NavLink className="nav-link" to="/contact">
+            <NavLink
+              className="nav-link"
+              style={({ isActive }) => ({
+                color: isActive && "red",
+              })}
+              to="/contact"
+            >
               Contact
             </NavLink>
           </Nav>

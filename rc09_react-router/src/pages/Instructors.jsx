@@ -25,6 +25,8 @@ const Instructors = () => {
                 src={`https://avatars.dicebear.com/v2/avataaars/${id}.svg`}
                 alt=""
                 onClick={() => navigate(`/instructors/${id}`)}
+                // onClick={() => navigate(`/instructors/${id}`, { state: user })}
+                style={{ cursor: "pointer" }}
               />
               <h6>{name}</h6>
             </Col>
