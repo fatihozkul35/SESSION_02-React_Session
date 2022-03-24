@@ -1,27 +1,48 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import ShowTasks from "../components/ShowTasks";
-import data from "../helper/starterData";
+import axios from "axios";
 
 const Home = () => {
-  const [tasks, setTasks] = useState(data);
+  const [tasks, setTasks] = useState([]);
 
-  const addTask = (newTask) => {
-    const id = new Date().getTime();
-    const addNewTask = { id: id, ...newTask };
-    setTasks([...tasks, addNewTask]);
+  const baseURL = "http://localhost:5000/tasks";
+
+  //* CRUD
+
+  //! READ (GET)
+  const fetchTasks = async () => {
+    const { data } = await axios.get(baseURL);
+    setTasks(data);
   };
 
-  const toggleDone = (id) => {
-    setTasks(
-      tasks.map((task) =>
-        task.id === id ? { ...task, isDone: !task.isDone } : task
-      )
-    );
+  useEffect(() => {
+    fetchTasks();
+  }, []);
+
+  //! CREATE (POST)
+  const addTask = async (newTask) => {
+    await axios.post(baseURL, newTask);
+    fetchTasks();
   };
 
-  const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
+  //! UPDATE (PUT OR PATCH)
+  //?  PATCH: Partial Update
+  //? PUT: Whole Update
+
+  const toggleDone = async (id) => {
+    const toggledDone = tasks
+      .filter((task) => task.id === id)
+      .map((task) => ({ isDone: !task.isDone }));
+
+    await axios.patch(`${baseURL}/${id}`, toggledDone[0]);
+    fetchTasks();
+  };
+
+  //! DELETE
+  const deleteTask = async (id) => {
+    await axios.delete(`${baseURL}/${id}`);
+    fetchTasks();
   };
 
   return (
