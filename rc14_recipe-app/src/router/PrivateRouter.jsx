@@ -1,9 +1,9 @@
 import { Navigate, Outlet } from "react-router-dom";
 
 const PrivateRouter = () => {
-  const userSigned = true;
+  const user = JSON.parse(sessionStorage.getItem("user"));
 
-  return userSigned ? <Outlet /> : <Navigate to="/login" />;
+  return user ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default PrivateRouter;
