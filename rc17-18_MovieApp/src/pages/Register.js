@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
+import { createUser } from "../auth/firebase";
+import { useNavigate } from "react-router-dom";
+
 const Register = () => {
   const [firstName, setFirstName] = useState();
   const [lastName, setlastName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
 
-  const handleSubmit = () => {
+  const handleRegister = () => {
     const displayName = `${firstName} ${lastName}`;
-    console.log(displayName);
+    createUser(email, password, displayName);
+    navigate("/");
   };
 
   return (
@@ -70,7 +75,7 @@ const Register = () => {
           <Button
             variant="primary"
             className="form-control"
-            onClick={handleSubmit}
+            onClick={handleRegister}
           >
             Register
           </Button>
